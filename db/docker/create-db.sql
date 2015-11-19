@@ -57,6 +57,15 @@ CREATE TABLE data (
 );
 ALTER TABLE data OWNER TO qa_hello;
 
+
+-- config
+CREATE TABLE config (
+  id          text NOT NULL PRIMARY KEY,
+  value       text NOT NULL
+);
+ALTER TABLE config OWNER TO qa_hello;
+
+
 ---------------- Data ---------------------------------
 INSERT INTO data values('Lenka');
 INSERT INTO data values('Martin');

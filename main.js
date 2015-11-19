@@ -14,7 +14,7 @@ function pgClient() {
 
 function getDataFromDB(callback) {
     var client = pgClient();
-    var query = pgClient().query("SELECT name FROM data ORDER BY name", function(err, result) {
+    var query = client.query("SELECT name FROM data ORDER BY name", function(err, result) {
         if(err){ callback(err); }
     });
     var names = '';
@@ -22,15 +22,24 @@ function getDataFromDB(callback) {
         names += (((names == '') ? '' : ', ') + row['name']);
     });
     query.on('end', function() {
-        callback(names);
+        var qcfg = client.query("SELECT id, value FROM config WHERE id in ('etsy_host', 'etsy_port')", function(err, result) {
+            if(err){ callback(err); }
+        });
+        var cfg_data = {};
+        qcfg.on('row', function(row) {
+            cfg_data[row['id']] = row['value'];
+        });
+        qcfg.on('end', function() {
+            callback(names, cfg_data);
+        });
     });
 }
 
-function getDataFromWeb(callback) {
+function getDataFromWeb(cfg, callback) {
     var options = {
-      host: 'localhost',
-      path: '/',
-      port: '3000'
+      host: cfg['etsy_host'],
+      port: cfg['etsy_port'],
+      path: '/'
     };
     var req = http.request(options, function(response) {
         var data = ''
@@ -42,8 +51,9 @@ function getDataFromWeb(callback) {
 }
 
 app.use('/', function(req, res) {
-    getDataFromDB(function(data_db) {
-        getDataFromWeb(function(data_web) {
+    getDataFromDB(function(data_db, cfg_db) {
+        console.log('cfg_db=', cfg_db);
+        getDataFromWeb(cfg_db, function(data_web) {
             res.send('<html><head><title>QA Hello</title></head><body><div id="db">'+data_db+'</div><div id="web">'+data_web+'</div></body></html>\n');
         });
     });
