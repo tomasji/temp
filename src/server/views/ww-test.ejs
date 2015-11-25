@@ -7,6 +7,13 @@
 	<body>
 		<div id="app">
 		</div>
+		<ul>
+		<% for(var i=0; i < db_data.length; i++) {%>
+			<li>
+			<%= db_data[i]['name'] %>
+			</li>
+		<% } %>
+		</ul>
 		<%- vars %>
 		<div id='page_type' type='<%= page %>'><script src="/js/client.js"></script></div>
 	</body>
