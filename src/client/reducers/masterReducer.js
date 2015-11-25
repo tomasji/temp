@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 
 
-function testRun(state = defaultStatus.testRun, action) {
+function testRun(state = [], action) {
     if (action !== null) {
         return state;
     }
