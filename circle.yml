@@ -1,0 +1,24 @@
+machine:
+  environment:
+    PATH: ${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin
+  node:
+    version: 0.0.1
+
+dependencies:
+  override:
+    - npm install
+    - make bundle
+
+test:
+  override:
+    - true
+  post:
+    - git add dist
+    - git commit -m "build"
+
+deployment:
+  try:
+    branch: [cci]
+    commands:
+    - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+    - git push -f git@heroku.com:temp-cci.git ${CIRCLE_BRANCH}:refs/heads/master
