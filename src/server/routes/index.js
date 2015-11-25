@@ -37,7 +37,9 @@ let vars = '';
 const env = process.env;
 const names = Object.keys(env).sort();
 for (const v of names) {
-    vars += escapeHTML(v) + '=' + escapeHTML(process.env[v]) + '<br/>';
+    if (v === 'MEMORY_AVAILABLE' || v === 'DYNO') {
+        vars += escapeHTML(v) + '=' + escapeHTML(process.env[v]) + '<br/>';
+    }
 }
 
 getData('SELECT name FROM test ORDER BY name', [], (dbData) => {
