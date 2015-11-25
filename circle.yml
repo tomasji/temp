@@ -15,5 +15,14 @@ test:
     - /bin/true
 
   post:
+    - git config user.name "circleci"
+    - git config user.email "herokuadmin@salsitasoft.com"
     - git add dist
     - git commit -m "build"
+
+deployment:
+  develop:
+    branch: [cci]
+    commands:
+    - git push -f git@heroku.com:pokus-cci.git ${CIRCLE_BRANCH}:refs/heads/master
+
