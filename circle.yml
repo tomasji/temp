@@ -8,3 +8,7 @@ dependencies:
   override:
     - npm install
 
+test:
+  override:
+    - echo "test run" > /tmp/my.log
+    - true
