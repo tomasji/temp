@@ -4,7 +4,6 @@
   "description": "Redux driven React boilerplate",
   "engine": "node 4.2.2",
   "scripts": {
-    "postinstall": "npm run build_backend && npm run build_frontend",
     "build_frontend": "./node_modules/webpack/bin/webpack.js --config=webpack/webpack.frontend.config.js",
     "build_backend": "./bin/inst_backend",
     "start": "cd dist && node server.js",
