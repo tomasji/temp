@@ -6,23 +6,10 @@ machine:
 
 dependencies:
   override:
-    - npm install
-    - make bundle
+      - bash -c 'echo "dependencies: OK"'
 
 
 test:
   override:
-    - /bin/true
-
-  post:
-    - git config user.name "circleci"
-    - git config user.email "herokuadmin@salsitasoft.com"
-    - git add dist
-    - git commit -m "build"
-
-deployment:
-  develop:
-    branch: [cci]
-    commands:
-    - git push -f git@heroku.com:temp-cci.git ${CIRCLE_BRANCH}:refs/heads/master
+          - ./run-test
 

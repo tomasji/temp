@@ -1,0 +1,879 @@
+<!--
+Texas Instruments Manifest Format 2.0
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- @Start Style -->
+<!-- Default style in case someone doesnt have Internet Access -->
+<style type="text/css" id="internalStyle">
+	body, div, p {
+		font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
+		font-size: 13px;
+		line-height: 1.3;
+	}
+	body {
+		margin: 20px;	
+	}
+	h1 {
+		font-size: 150%;
+	}
+	h2 {
+		font-size: 120%;
+	}
+	h3 {
+		font-size: 100%;
+	}
+	img {
+		border: 0px;
+		vertical-align: middle;
+	}
+	table, th, td, tr {
+		border: 1px solid black;	
+		font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
+		font-size: 13px;
+		line-height: 1.3;
+		empty-cells: show;  
+		padding: 5px;
+	}
+	table {
+		border-collapse: collapse; 
+		width: 100%;
+	}
+	tr {
+		page-break-inside: avoid;
+	}
+	#TIlogoLeft {
+		background-color: black; 
+		padding: 0;
+		width: 20%;
+	}
+	#TIlogoRight {
+		background-color: red; 
+		padding: 0;
+	}
+	#ProductName {
+		text-align: center;
+	}
+	#ReleaseDate {
+		text-align: center;
+	}
+	.LogoSection {
+		margin: 0;
+		padding: 0;
+	}
+	.HeaderSection {
+		margin: 25px 0 25px 0;
+		padding: 0;
+	}
+	.LegendSection {
+		margin: 25px 0 25px 0;
+	}
+	.ExportSection {
+		margin: 25px 0 25px 0;
+	}
+	.DisclaimerSection {
+		margin: 25px 0 25px 0;	
+	}
+	.CreditSection {
+		margin: 25px 0 25px 0;	
+	}
+	.LicenseSection {
+		margin: 25px 0 25px 0;	
+	}
+	.ManifestTable {
+		margin: 25px 0 25px 0;	
+	}
+</style> 
+<!-- Override style from TI if they have Internet Access -->
+<link type="text/css" rel="stylesheet" href="timanifeststyle.css">
+<!-- @End Style -->
+<title>Texas Instruments Manifest</title>
+</head>
+
+<body><!-- Logo display, will need to fix up the URLs, this is just for testing.. Image alternate display not wporking well yet -->
+<div class="LogoSection">
+<table>
+  <tbody>
+    <tr>
+      <td id="TIlogoLeft">
+        <a href="http://www.ti.com/">
+          <!-- img src="tilogo.gif" alt="Texas Instruments Incorporated" -->
+		  <img alt="" src="data:image/gif;base64,R0lGODlh3gA2AKIAAAAAAP///7u7u29vbz8/PwYGBujo6BgYGCH5BAAAAAAALAAAAADeADYAAAP/CLrc/jDKSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodHorDALYLIHKJVqz2q44eAUHtoDB4DBu48rgLQErcNtnX7NhMDcICIB3gix5ZmtqAAZZew8EAo+QkQIDNVZqiIM1cHGKZ4YPAmaiAWw0c1gFmZqjB3SbZ6kNe6WhsAeOlDV0qjSFAXUAp7lwuREFtVsFgMvLB7fNAM+BCs+lDLd8BNYOuxfV22PL0RiWlwO1u3kDqejAEsjR6GB86FsHoYwA6gxWnVgGEegUuIelWJk6jswAGlXQ36J1xBSoQwfulIEDr/6l+VeK/+AehrAGOHRnAWRBbbWegckXAV6wk4AeRQtDQBEaBYsYlMl2hUCsBt0iKgilT9EfAlfO7SmzdKkrkQUT/fqZSECqLCSlntH375IAA1tqGUilLIBSNVnU+NmJNBRVChlF1QwAdlRWBy5P3QymwCLBYhs73cTHYBq3X33nDQ2wcWuBgef0FRD4GK3jU3VCZZUJAIw1OGg0P+4bFiubOWoOsEP1+KvZn3wurDbZ6lfcuw3yYkFjRSeYzRe7ARAbW0K3PmGIMi0OFDG1Mmha+RnufAHn3xL9ha6uTZ/rXagZ1GKAtTsHeWb+FEQvHILuX4+mLzj2j2r4TrFesTwMbE5Cuv8JzbTSGuRV1xgfUJFC3WbA0JWFalcItpgf8YU2yT/qATaedent5cBb8zk0DzIitgfKbonRFV9Wp2xl3UXq5Ccibp05598BnRigiAIJmrZAexkJQIuBwzX4CB3SQbeYQkPVAUco63DI2HzsAdYAiAvEZdYlaVQ5wXs3+bQAjovEUoBRR9LVAFLaPXCcY/KMqVRasQB5kiJgLcYgTkJiuCWKC2ZpIY/z/LRhYefkBAGW1HTyRy2UjObLHxSAOZ948EUVGCSC3SLZbB7iZKOLc2GRRgMH/VhdHnJwFCgD8iEGx0VKvpqbO+hoaCppEg3UiTES1CTkhNaQ+Qs4LQGql07/lET4mIQ6SvTSVGZ9Bmhz/bkYzK+PFKtpje6wumRm1wrLZzSdQASoZvyswdmSuk7p616HfkjBTxZBQucFgqXCFKdn1NpiUlQJhs8kteBWG0AbATbXS2tBlaeoVkmJRova4KkGPmhMFdiSYmq8cbTRYhrlkiHaNufJ9mIgVqEXnAOJM5JE4sgjudQ8bF82x+cKBP4Iiedecyjgx2/WtMNjjhcL9h+S4xq9RYJgsbeeUbmdrPTSQbPccsyijEXOfI8xyuinVJH1wdkS/MQ2Bc5Iq08DyHYwGglvPyCilbz0fa8GLV7r9+Btb7CJ14Qnzg8HpdKoOOF5Py752JNXvrblNphzEHnmnF/a+ecTbA465qKPXnnppkuOeuqKr8465K+z7nrsfc9Ouyq23z5I7rrfwXvvbhSQAAA7" />
+        </a>
+      </td>
+      <td id="TILogoRight">
+        <!-- img src="titagline.gif" alt="Technology for Innovators(tm)"-->
+		<img alt="" src="data:image/gif;base64,R0lGODlhOgEaALMAAP8AAP////92dv+3t/+Njf/W1v/t7f8hIf/19f+jo//Hx/8/P/9cXP/j4//6+v/+/iH5BAAAAAAALAAAAAA6ARoAAAT/EMhJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsGo/IpHLJbDqft0NDMCBQodis1jcADBKE7nYcCpjPgU5AQBKkVYOHAeRudqtXsh60/vRHdSoBBCGBNAkLe4o4f2psgG8pjR6GM5OLmDB/DA0GBoQADAgICRIBBQUOYgwGCg2kEgudBgUHAIGcBg0MsZ0NCnMGYgsBtqEGAbCynrW3AQONgcIFBgiErK6wAAfUtLbCscWiowoAyLDczLZu0AIJCAYOoJn0G38ObAwPEvLEts/O1vUhsA8AAjGonEmA9W6hGAVpEjiQoKBAhT8HJSRkVyEQQAAJ//a5YeMPQIFyACqCnJjSIgFCB4oB+HOSokWOAB6wIWCxnk8MfYh5QsYg5sVHfQLVMSqhztJIxWIaC6QzJy8KfZgqrNT0zR+nUNl8fSMvZ6IDwJCJRfoI7IR4Cub9nDsha6RwR02xUZpGq1utUWUq9FKgYV6/abgOHjt45tquEgY0SDDHoJg+fxhXolKNrmfH/EoR5EdAKmjQfB1qvPmGIQIJ3g4gC2egVF7LqxtP8Ng2cViTKFUCIGbNFKEEmB/VbDlYdqLRn+du8oTg6jjbmfe+CbTM2+BcuySgbQVtQoOCt7s3U8wbsqGs3ZppZLnylwFe8Uql825ogANPckUnYDoOCogxQGXADajggjcw4AA8DSSyTQASMmjhhTQscBWGHHbo4YcghijiiCSWaOKJKKao4oostugiFBEAADs=" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="HeaderSection">
+<h1 id="ProductName">
+<!-- @Start Product -->
+IPG-UI Manifest
+<!-- @End Product -->
+</h1>
+
+<h2 id="ReleaseDate">
+<!-- @Start Date -->
+09-11-2015
+<!-- @End Date -->
+</h2>
+
+
+<h2 id="SRASID">
+<!-- @Start Date -->
+Manifest ID - SRAS00002136
+<!-- @End Date -->
+</h2>
+</div><div class="LegendSection">
+<h2>Legend</h2>
+<p>(explanation of the fields in the Manifest Table below)</p>
+<table>
+<tbody>
+<tr>
+<td>
+<b>Software Name </b>
+</td>
+<td>
+The name of the application or file
+</td>
+</tr>
+<tr>
+<td>
+<b>Version</b>
+</td>
+<td>
+Version of the application or file
+</td>
+</tr>
+<tr>
+<td>
+<b>License Type</b>
+</td>
+<td>
+Type of license(s) under which TI will be providing
+software to the licensee (e.g. BSD-3-Clause, GPL-2.0, TI TSPA License, TI
+Commercial License). The license could be under Commercial terms or Open Source. See Open Source Reference License Disclaimer in
+the Disclaimers Section. Whenever possible, TI will use an <a href="http://spdx.org/licenses/"> SPDX Short Identifier </a> for an Open Source
+License. TI Commercial license terms are not usually included in the manifest and are conveyed through a variety 
+of means such as a clickwrap license upon install, 
+a signed license agreement and so forth.
+</td>
+</tr>
+<tr>
+<td>
+<b>Location</b>
+</td>
+<td>
+The directory name and path on the media or a specific file where the Software is located. Typically fully qualified path names 
+are not used and instead the relevant top level directory of the application is given. 
+A notation often used in the manifests is [as installed]/directory/*. Note that the asterisk implies that all
+files under that directory are licensed as the License Type field denotes. Any exceptions to this will 
+generally be denoted as [as installed]/directory/* except as noted below which means as shown in subsequent rows of 
+the manifest.
+</td>
+</tr>
+<tr>
+<td>
+<b>Delivered As</b>
+</td>
+<td>
+This field will either be &#8220;Source&#8221;, &#8220;Binary&#8221; or &#8220;Source
+and Binary&#8221; and is the primary form the content of the Software is delivered
+in. If the Software is delivered in an archive format, this field
+applies to the contents of the archive. If the word Limited is used
+with Source, as in &#8220;Limited Source&#8221; or &#8220;Limited Source and Binary&#8221; then
+only portions of the Source for the application are provided.
+</td>
+</tr>
+<tr>
+<td>
+<b>Modified by TI</b>
+</td>
+<td>
+This field will either be &#8220;Yes&#8221; or &#8220;No&#8221;. A &#8220;Yes&#8221; means
+TI has made changes to the Software. A &#8220;No&#8221; means TI has not made any
+changes. Note: This field is not applicable for Software &#8220;Obtained
+from&#8221; TI.
+</td>
+</tr>
+<tr>
+<td>
+<b>Obtained from</b>
+</td>
+<td>
+This field specifies from where or from whom TI obtained
+the Software. It may be a URL to an Open Source site, a 3<sup>rd</sup>
+party licensor, or TI. See Links Disclaimer in the Disclaimers
+Section.
+</td>
+</tr>
+</tbody>
+</table>
+</div><div class="DisclaimerSection">
+<h2>Disclaimers</h2>
+<h3>Export Control Classification Number (ECCN)</h3>
+<p>Any use of ECCNs listed in the Manifest is at the user&#8217;s risk
+and without recourse to TI. Your
+company, as the exporter of record, is responsible for determining the
+correct classification of any item at
+the time of export. Any export classification by TI of Software is for
+TI&#8217;s internal use only and shall not be construed as a representation
+or warranty
+regarding the proper export classification for such Software or whether
+an export
+license or other documentation is required for exporting such Software</p>
+<h3>Links in the Manifest</h3>
+<p>Any
+links appearing on this Manifest
+(for example in the &#8220;Obtained from&#8221; field) were verified at the time
+the Manifest was created. TI makes no guarantee that any listed links
+will
+remain active in the future.</p>
+<h3>Open Source License References</h3>
+<p>Your company is responsible for confirming the
+applicable license terms for any open source Software
+listed in this Manifest that was not &#8220;Obtained from&#8221; TI. Any open
+source license
+specified in this Manifest for Software that was
+not &#8220;Obtained from&#8221; TI is for TI&#8217;s internal use only and shall not be
+construed as a representation or warranty regarding the proper open
+source license terms
+for such Software.</p>
+</div><div class="ExportSection">
+<h2>Export Information</h2>
+<p>ECCN for Software included in this release:</p>
+Publicly Available  - Open Source or TI TSPA License
+</div><div class="ManifestTable">
+<!-- h2>Manifest Table</h2 -->
+ 
+ <table> 
+ <tbody> 
+ 
+ <h2> 
+  IPG-UI Manifest Table 
+ </h2> 
+ 
+  
+ <p> 
+ 
+ See the Legend above for a description of these columns. 
+ 
+ </p> 
+  
+ <table id="targetpackages" name="targetpackages"> 
+ <thead>  
+ 	<tr> 
+ 		<td><b>Software Name</b></td> 
+ 		<td><b>Version</b></td> 
+ 		<td><b>License Type</b></td> 
+ 		<td><b>Delivered As</b></td> 
+ 		<td><b>Modified by TI</b></td> 
+ 		<td></td> 
+ 		<td></td> 
+ 	</tr> 
+ </thead>  
+ 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Node-webkit 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.12.3 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ Node-webkit licenses(1) 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Binary 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ [as installed]/IPG-UI/*.dll and nw.exe 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/nwjs/npm-installer 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ IPG-UI 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 2.0.0.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ TI Text File License 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ N/A 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ TI 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Angular 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 1.4.5 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/angular/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/angular/angular.js.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Angular-loader 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 1.4.5 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/angular-loader/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/angular/angular.js.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Angular-mocks 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 1.4.5 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/angular-mocks/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/angular/angular.js.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Angular-ui-router 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.2.15 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/angular-ui-router/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/angular-ui/ui-router.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Angular-ui-sortable 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.13.4 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/angular-ui-sortable/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/angular-ui/ui-sortable.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Font-awesome 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 4.3.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT and OFL-1.1 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/font-awesome/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/FortAwesome/Font-Awesome.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ JQuery 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 2.1.4 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/jquery/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/jquery/jquery.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ JQuery.scrollTo 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 2.1.1 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pakapp/bower_components/jquery.scrollTo/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/flesler/jquery.scrollTo 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ JQuery-ui 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 1.11.4 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/jquery-ui/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/jquery/jquery-ui.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Jssha 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 1.6.1 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ BSD 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/jssha/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/Caligatio/jsSHA.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Lodash 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 3.10.1 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/lodash/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/lodash/lodash.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Roboto-fontface 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.3.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ Apache-2.0 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/bower_components/roboto-fontface/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/choffmeister/roboto-fontface-bower.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Node-hid 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.4.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT and X11 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source and Binary 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/node-hid/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/hanshuebner/node-hid.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Hidapi 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.1.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ BSD-3-Clause 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source and Binary 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/node-hid/hidapi/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/signal11/hidapi.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Bluebird 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 2.9.34 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/bluebird/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/petkaantonov/bluebird.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Crc 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 3.3.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/crc/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/alexgorbatchev/node-crc.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Mkdirp 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.5.0 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/mkdirp/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ https://github.com/substack/node-mkdirp.git 
+ </td> 
+ 	</tr> 
+ 
+ <tbody> 
+ 	<tr> 
+ 		<td id="name" name="name" rowspan="2"> 
+ Minimist 
+ </td> 
+ 		<td id="version" name="version" rowspan="2"> 
+ 0.0.8 
+ </td> 
+ 		<td id="license" name="license" rowspan="2"> 
+ MIT 
+ </td> 
+ 		<td id="delivered" name="delivered" rowspan="2"> 
+ Source 
+ </td> 
+ 		<td id="modified" name="modified" rowspan="2"> 
+ No 
+ </td> 
+ 		<td><b>Location</b></td> 
+ 		<td id="location" name="location"> 
+ Nw.pak app/node_modules/mkdirp/node_modules/minimist/* (2) 
+ </td> 
+ 	</tr> 
+ 	<tr> 
+ 		<td><b>Obtained from</b></td> 
+ 		<td id="obtained" name="obtained"> 
+ git://github.com/substack/minimist.git 
+ </td> 
+ 	</tr> 
+ 
+ </tbody> 
+ </table> 
+ (1) See node-webkit credits.html for licenses<br>(2) The nw.pak file is an archive which contains the application files.  It is extracted to a temporary directory when node-webkit begins execution and is removed when node-webkit exits. 
+ </p> 
+ </p> 
+ <p> 
+
+</div><div class="CreditSection">
+<h2>Credits</h2>
+<BR> <BR><BR><BR><BR>
+</div><div class="LicenseSection">
+<h2>Licenses</h2>
+<BR><h3><b> IPG-UI Licenses </b></h3><BR> SEE MANIFEST FOR ADDITIONAL OPEN SOURCE LICENSES<BR><BR>TEXAS INSTRUMENTS TEXT FILE LICENSE<BR><BR><BR>Copyright (c) [2015] Texas Instruments Incorporated<BR><BR>All rights reserved not granted herein.<BR><BR>Limited License.  <BR><BR>Texas Instruments Incorporated grants a world-wide, royalty-free, non-exclusive license under copyrights and patents it now or hereafter owns or controls to make, have made, use, import, offer to sell and sell ("Utilize") this software subject to the terms herein.  With respect to the foregoing patent license, such license is granted  solely to the extent that any such patent is necessary to Utilize the software alone.  The patent license shall not apply to any combinations which include this software, other than combinations with devices manufactured by or for TI (“TI Devices”).  No hardware patent is licensed hereunder.<BR><BR>Redistributions must preserve existing copyright notices and reproduce this license (including the above copyright notice and the disclaimer and (if applicable) source code license limitations below) in the documentation and/or other materials provided with the distribution<BR><BR>Redistribution and use in binary form, without modification, are permitted provided that the following conditions are met:<BR><BR>*	No reverse engineering, decompilation, or disassembly of this software is permitted with respect to any software provided in binary form.<BR><BR>*	any redistribution and use are licensed by TI for use only with TI Devices.<BR><BR>*	Nothing shall obligate TI to provide you with source code for the software licensed and provided to you in object code.<BR><BR>If software source code is provided to you, modification and redistribution of the source code are permitted provided that the following conditions are met:<BR><BR>*	any redistribution and use of the source code, including any resulting derivative works, are licensed by TI for use only with TI Devices.<BR><BR>*	any redistribution and use of any object code compiled from the source code and any resulting derivative works, are licensed by TI for use only with TI Devices.<BR><BR>Neither the name of Texas Instruments Incorporated nor the names of its suppliers may be used to endorse or promote products derived from this software without specific prior written permission.<BR><BR>DISCLAIMER.<BR><BR>THIS SOFTWARE IS PROVIDED BY TI AND TI’S LICENSORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL TI AND TI’S LICENSORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<BR>Obligations<BR>  License Text in Source <BR>This license requires a copy of the license text and all copyright notices to be included in the source file(s). This obligation can also mean that a license or notice text file must be present in the same directory as the associated code.<BR>  License Text in Documentation <BR>This license requires a copy of the license text and all copyright notices to be included in the product documentation.<BR>  Usage Notice in Documentation <BR>This license requires a notice in the product documentation that the licensed software is being used.<BR>  Usage Notice in Advertisement <BR>This license requires a notice in all advertisements for the product (typically those mentioning features of the licensed software) that the licensed software is being used.<BR>  No Use in Endorsements <BR>This license requires that neither the name of the organization that owns the licensed software nor the names of its contributors nor the name of the licensed software may be used to endorse or promote products derived from the licensed software without specific prior written permission.<BR>  Source Redistribution <BR>This license requires the product documentation to include instructions regarding how to obtain source code for the licensed software, including any modifications to it.<BR>  Change Tracking in Source <BR>This license requires that any changes to the original source code of the licensed software must be documented within the source code itself.<BR>  Change Tracking in Documentation <BR>This license requires that any changes to the original source code of the licensed software must be documented in the product documentation.<BR>  Special Attribution Obligation <BR>This license has one or more special attribution obligations that are described in the text of the license.<BR>Restrictions<BR>  Non-Commercial Use Only <BR>This license prohibits commercial use (and typically redistribution) of the licensed software.<BR>  Platform Deployment Restriction <BR>This license restricts the deployment of the licensed software by operating system, technology, technical field of use or type of device. Licenses with this restriction are not OSI compliant.<BR>  Name Restriction <BR>This license restricts and may specify how the name of the licensed software may be used, including restrictions that may require a name change if the code is modified.<BR>  Restricted Redistribution <BR>This license restricts which licensed software sub-components you can redistribute. The restriction may apply to source code, binary files or other sub-components. This restriction is typically included only in proprietary or commercial licenses. Licenses with this restriction are not OSI compliant.<BR>  Restricted Modifications <BR>This license restricts how the software can be modified. This restriction is typically included in proprietary or commercial licenses (for example, Oracle and Microsoft proprietary licenses) and in some licenses with restrictions on the creation of derivative works (for example, the Creative Common "no derivative" licenses).<BR>  No License Change <BR>This license prohibits changing the license that applies to the original licensed software or a derivative work of it. An example is the license for OpenSSL.<BR>  Specification Constraints <BR>This license has constraints on how the licensed software can be used or modified, in relation to some specification or standard. Few licenses have such constraints; examples include the licenses for MPEG for IP; the Independent JPEG group; some Open Group; POSIX; and some early Sun Java licenses. <BR>  DRM Not Allowed <BR>This license does not allow the assertion of any digital rights management on the licensed software or a derivative work of it with the intent of restricting the ability to exercise the rights granted by this license. <BR>  Prohibited in Aircraft <BR>This license prohibits use of the licensed software in aircraft-related applications.<BR>  Prohibited in Medical <BR>This license prohibits use of the licensed software in medical facilities and/or life support equipment.<BR>  Prohibited in Nuclear <BR>This license prohibits use of the licensed software in a nuclear-power environment.<BR>  Export Controls <BR>This license text includes export controls.<BR>Policies<BR>  Patent - Rights Impairment <BR>This license has terms that may impair your patent rights if you redistribute the licensed software, since the license terms may require you to convey your patent rights along with redistribution of the licensed software, or otherwise constrain the enforcement ability of your patent rights.<BR>  Patent - License Termination <BR>This license may end automatically if you bring a patent claim against any contributor over patents that you claim are infringed by the licensed software; your patent license from such contributor to the licensed software may also end automatically. <BR>Information<BR>  Warranty Disclaimer <BR>This license text includes a warranty disclaimer.<BR>  Indemnify Licensor <BR>This license says that you agree to indemnify, hold harmless and defend the licensor from and against any loss, damage, claims or lawsuits, including attorney's fees that arise or result from your use or distribution of the licensed software.<BR>  Network Redistribution <BR>This license has specific terms that apply when the software is used or deployed over a network. Few licenses have such terms; examples include Affero GPL, OSL and the Common Public Attribution License (CPAL 1.0).<BR>  Patent - Grant <BR>This license states that the author conveys a grant of patent rights without constraining the use of patents held by a recipient.<BR>  Patent - Warning <BR>This license explicitly warns that the license does not convey a patent grant and that such a grant and/or royalty payments are probably required.<BR>  GPL Compatible <BR>This license is compatible with the GPL; that is, software licensed under this license can be combined with a program under the GPL without conflict, and the new combination would have the GPL applied to the whole. The primary authority for compatibility is FSF.<BR>  Exceptions <BR>This license is based upon another license with specific exceptions. Examples include exceptions to the GPL 2.0, such as the GCC Runtime Exception or the Classpath Exception.<BR>Homepage URL <BR>http://opensource.org/licenses/mit-license.php<BR>Text URLs <BR>http://opensource.org/licenses/mit-license.php<BR>Osi URL <BR>http://opensource.org/licenses/mit-license.php<BR>FAQ URL <BR> <BR>Guidance URL <BR> <BR>Other URLs <BR>http://spdx.org/licenses/MIT<BR>Name <BR>MIT<BR>Homepage URL <BR>http://web.mit.edu/aboutmit/<BR>Type <BR>Organization<BR>Contact information <BR>http://web.mit.edu/aboutmit/<BR>Alias <BR> <BR>Notes <BR>Massachusetts institute of Technology<BR>SPDX license key <BR>MIT<BR>SPDX full name <BR>MIT License<BR>SPDX source URL <BR>http://www.opensource.org/licenses/MIT<BR>SPDX notes <BR>This license is OSI certified.<BR>SPDX license text <BR>MIT License <BR><BR>Copyright (c) 2015 Texas Instruments<BR><BR>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: <BR><BR>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. <BR><BR>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR <BR>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, <BR>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE <BR>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER <BR>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, <BR>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN <BR>THE SOFTWARE.<BR><BR>Copyright (c) 2015, Texas Instruments<BR>All rights reserved.<BR><BR>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:<BR><BR>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.<BR><BR>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.<BR><BR>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<BR>Obligations<BR>  License Text in Source <BR>This license requires a copy of the license text and all copyright notices to be included in the source file(s). This obligation can also mean that a license or notice text file must be present in the same directory as the associated code.<BR>  License Text in Documentation <BR>This license requires a copy of the license text and all copyright notices to be included in the product documentation.<BR>  Usage Notice in Documentation <BR>This license requires a notice in the product documentation that the licensed software is being used.<BR>  Usage Notice in Advertisement <BR>This license requires a notice in all advertisements for the product (typically those mentioning features of the licensed software) that the licensed software is being used.<BR>  No Use in Endorsements <BR>This license requires that neither the name of the organization that owns the licensed software nor the names of its contributors nor the name of the licensed software may be used to endorse or promote products derived from the licensed software without specific prior written permission.<BR>  Source Redistribution <BR>This license requires the product documentation to include instructions regarding how to obtain source code for the licensed software, including any modifications to it.<BR>  Change Tracking in Source <BR>This license requires that any changes to the original source code of the licensed software must be documented within the source code itself.<BR>  Change Tracking in Documentation <BR>This license requires that any changes to the original source code of the licensed software must be documented in the product documentation.<BR>  Special Attribution Obligation <BR>This license has one or more special attribution obligations that are described in the text of the license.<BR>Restrictions<BR>  Non-Commercial Use Only <BR>This license prohibits commercial use (and typically redistribution) of the licensed software.<BR>  Platform Deployment Restriction <BR>This license restricts the deployment of the licensed software by operating system, technology, technical field of use or type of device. Licenses with this restriction are not OSI compliant.<BR>  Name Restriction <BR>This license restricts and may specify how the name of the licensed software may be used, including restrictions that may require a name change if the code is modified.<BR>  Restricted Redistribution <BR>This license restricts which licensed software sub-components you can redistribute. The restriction may apply to source code, binary files or other sub-components. This restriction is typically included only in proprietary or commercial licenses. Licenses with this restriction are not OSI compliant.<BR>  Restricted Modifications <BR>This license restricts how the software can be modified. This restriction is typically included in proprietary or commercial licenses (for example, Oracle and Microsoft proprietary licenses) and in some licenses with restrictions on the creation of derivative works (for example, the Creative Common "no derivative" licenses).<BR>  No License Change <BR>This license prohibits changing the license that applies to the original licensed software or a derivative work of it. An example is the license for OpenSSL.<BR>  Specification Constraints <BR>This license has constraints on how the licensed software can be used or modified, in relation to some specification or standard. Few licenses have such constraints; examples include the licenses for MPEG for IP; the Independent JPEG group; some Open Group; POSIX; and some early Sun Java licenses. <BR>  DRM Not Allowed <BR>This license does not allow the assertion of any digital rights management on the licensed software or a derivative work of it with the intent of restricting the ability to exercise the rights granted by this license. <BR>  Prohibited in Aircraft <BR>This license prohibits use of the licensed software in aircraft-related applications.<BR>  Prohibited in Medical <BR>This license prohibits use of the licensed software in medical facilities and/or life support equipment.<BR>  Prohibited in Nuclear <BR>This license prohibits use of the licensed software in a nuclear-power environment.<BR>  Export Controls <BR>This license text includes export controls.<BR>Policies<BR>  Patent - Rights Impairment <BR>This license has terms that may impair your patent rights if you redistribute the licensed software, since the license terms may require you to convey your patent rights along with redistribution of the licensed software, or otherwise constrain the enforcement ability of your patent rights.<BR>  Patent - License Termination <BR>This license may end automatically if you bring a patent claim against any contributor over patents that you claim are infringed by the licensed software; your patent license from such contributor to the licensed software may also end automatically. <BR>Information<BR>  Warranty Disclaimer <BR>This license text includes a warranty disclaimer.<BR>  Indemnify Licensor <BR>This license says that you agree to indemnify, hold harmless and defend the licensor from and against any loss, damage, claims or lawsuits, including attorney's fees that arise or result from your use or distribution of the licensed software.<BR>  Network Redistribution <BR>This license has specific terms that apply when the software is used or deployed over a network. Few licenses have such terms; examples include Affero GPL, OSL and the Common Public Attribution License (CPAL 1.0).<BR>  Patent - Grant <BR>This license states that the author conveys a grant of patent rights without constraining the use of patents held by a recipient.<BR>  Patent - Warning <BR>This license explicitly warns that the license does not convey a patent grant and that such a grant and/or royalty payments are probably required.<BR>  GPL Compatible <BR>This license is compatible with the GPL; that is, software licensed under this license can be combined with a program under the GPL without conflict, and the new combination would have the GPL applied to the whole. The primary authority for compatibility is FSF.<BR>  Exceptions <BR>This license is based upon another license with specific exceptions. Examples include exceptions to the GPL 2.0, such as the GCC Runtime Exception or the Classpath Exception.<BR>Homepage URL <BR>http://www.opensource.org/licenses/BSD-2-Clause<BR>Text URLs <BR>http://opensource.org/licenses/bsd-license.php<BR>Osi URL <BR>http://opensource.org/licenses/bsd-license.php<BR>FAQ URL <BR> <BR>Guidance URL <BR> <BR>Other URLs <BR>http://spdx.org/licenses/BSD-2-Clause<BR>http://www.freebsd.org/copyright/copyright.html<BR>Name <BR>Regents of the University of California<BR>Homepage URL <BR>http://regents.universityofcalifornia.edu/<BR>Type <BR>Organization<BR>Contact information <BR> <BR>Alias <BR>UC Regents<BR>Notes <BR>Authors of the BSD-Original open source license.<BR>SPDX license key <BR>BSD-2-Clause<BR>SPDX full name <BR>BSD 2-clause "Simplified" License<BR>SPDX source URL <BR>http://www.opensource.org/licenses/BSD-2-Clause<BR>SPDX notes <BR>This license is OSI certifified.<BR><BR>http://spdx.org/licenses/BSD-2-Clause<BR>SPDX license text <BR>Copyright (c) 2015, Texas Instruments<BR>All rights reserved. <BR><BR>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: <BR><BR>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. <BR><BR>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. <BR><BR>THIS SOFTWARE IS PROVIDED BY {{THE COPYRIGHT HOLDERS AND CONTRIBUTORS}} "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL {{THE COPYRIGHT HOLDER OR CONTRIBUTORS}} BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<BR><BR><BR>Copyright (C) 2015 Texas Instruments<BR><BR>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, provided that the above copyright notice(s) and this permission notice appear in all copies of the Software and that both the above copyright notice(s) and this permission notice appear in supporting documentation.<BR><BR>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.<BR><BR>Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder.<BR><BR><BR><BR><BR><BR><BR><BR>
+</div>
+
+</body></html>
