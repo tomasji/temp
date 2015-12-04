@@ -6,10 +6,10 @@ machine:
 
 dependencies:
   override:
-      - bash -c 'echo "dependencies: OK"'
+      - /bin/true
 
 
 test:
   override:
-          - ./run-test
+      - ./run-test
 
