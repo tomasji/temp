@@ -4,6 +4,7 @@ set -ex
 SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd -P)
 
 export PATH=$SCRIPT_DIR:$PATH
+export LD_LIBRARY_PATH=$SCRIPT_DIR/lib
 
 ldd Xvfb
 
