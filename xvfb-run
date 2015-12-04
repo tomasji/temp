@@ -13,7 +13,7 @@ set -e
 PROGNAME=xvfb-run
 SERVERNUM=99
 AUTHFILE=
-ERRORFILE=/dev/null
+ERRORFILE=/tmp/xvfb.log
 XVFBARGS="-screen 0 640x480x8"
 LISTENTCP="-nolisten tcp"
 XAUTHPROTO=.
@@ -175,6 +175,7 @@ EOF
         continue
     fi
     error "Xvfb failed to start" >&2
+    cat "$ERRORFILE"
     XVFBPID=
     exit 1
 done
