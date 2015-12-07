@@ -1,15 +1,18 @@
 machine:
-  environment:
-    PATH: ${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin
-  node:
-    version: 0.10.18
+    services:
+        - docker
 
 dependencies:
-  override:
-      - /bin/true
-
+    cache_directories:
+        - "~/docker"
+    override:
+        - docker info
+        - docker login -e saldock@salsitasoft.com -u $DOCKER_USER -p $DOCKER_PASSWORD docker.salsitasoft.com
+        - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+        - docker run docker.salsitasoft.com/shishito:0.1 /usr/bin/true
+        - mkdir -p ~/docker; docker save docker.salsitasoft.com/shishito:0.1 > ~/docker/image.tar
 
 test:
-  override:
-      - ./run-test
-
+    override:
+        - docker run -d -p 9200:9200 docker.salsitasoft.com/shishito:0.1; sleep 10
+        - curl --retry 10 --retry-delay 5 -v http://localhost:9200
