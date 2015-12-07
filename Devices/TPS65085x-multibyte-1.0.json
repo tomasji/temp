@@ -1,0 +1,501 @@
+{
+  "modelVersion" : "0.1",
+  "extends": "deviceinfo://TPS65085x-1.0.json",
+  "@update registerGroups at 0": {
+    "@exclude registers where regAddr=01": null,
+    "@exclude registers where regAddr=05": null,
+    "@update registers match regAddr" : [
+      {
+        "regAddr": "00",
+        "regWidth": 16,
+        "regBits" : [
+          {
+            "bitMode" : [
+              {
+                "bitName" : "REV_ID1",
+                "bitGroup" : {
+                  "groupID": "REV_ID",
+                  "groupBit": "1"
+                },
+                "bitDescription" : "This is the MSB of the REV_ID",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "REV_ID0",
+                "bitGroup" : {
+                  "groupID": "REV_ID",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the LSB of the REV_ID",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "OTP_Version1",
+                "bitGroup" : {
+                  "groupID": "OTP_Version",
+                  "groupBit": "1"
+                },
+                "bitDescription" : "This is the MSB of the OTP version",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "OTP_Version0",
+                "bitGroup" : {
+                  "groupID": "OTP_Version",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the LSB of the OTP version",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "Device_Number3",
+                "bitGroup" : {
+                  "groupID": "Device_Number",
+                  "groupBit": "3"
+                },
+                "bitDescription" : "This is the MSB of the Device number",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "Device_Number2",
+                "bitGroup" : {
+                  "groupID": "Device_Number",
+                  "groupBit": "2"
+                },
+                "bitDescription" : "This is the MSB - 1 of the Device number",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "Device_Number1",
+                "bitGroup" : {
+                  "groupID": "Device_Number",
+                  "groupBit": "1"
+                },
+                "bitDescription" : "This is the MSB - 2 of the Device number",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "Device_Number0",
+                "bitGroup" : {
+                  "groupID": "Device_Number",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the LSB of the Device number",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID7",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "7"
+                },
+                "bitDescription" : "This is the MSB of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID6",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "6"
+                },
+                "bitDescription" : "This is the MSB - 1 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID5",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "5"
+                },
+                "bitDescription" : "This is the MSB - 2 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID4",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "4"
+                },
+                "bitDescription" : "This is the MSB - 3 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID3",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "3"
+                },
+                "bitDescription" : "This is the MSB - 4 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID2",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "2"
+                },
+                "bitDescription" : "This is the MSB - 5 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID1",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "1"
+                },
+                "bitDescription" : "This is the MSB - 6 of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "DeviceID0",
+                "bitGroup" : {
+                  "groupID": "DeviceID",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the LSB of the VENDORID register",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          }
+        ]
+      },
+      {
+        "regAddr": "04",
+        "regWidth": 16,
+        "regBits" : [
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "ACPWRPG_REMOVE",
+                "bitGroup" : {
+                  "groupID": "ACPWRPG_REMOVE",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the adapter detection interrupt.  A value of 1 indicates a change on the AC adapter was removed.  Write a value of 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "VINSNS",
+                "bitGroup" : {
+                  "groupID": "VINSNS",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the power monitor VINSNS voltage interrupt.  A value of 1 indicates a the critical supply voltage is below the threshold limit.  Write a value of 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "LOWBATT2",
+                "bitGroup" : {
+                  "groupID": "LOWBATT2",
+                  "groupBit": "0"
+                },
+                "bitDescription" : "This is the low battery 2 interrupt.  A value of 1 indicates a VDC level change was detected.  Write 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "LOWBATT1",
+                "bitGroup" : {
+                  "groupID": "LOWBATT1",
+                  "groupBit": "0"
+                },                  "bitDescription" : "This is the low battery 1 interrupt.  A value of 1 indicates a VDC level change was detected.  Write 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "ACPWRPG",
+                "bitGroup" : {
+                  "groupID": "ACPWRPG",
+                  "groupBit": "0"
+                },                  "bitDescription" : "This is the AC/DC adapter detection interrupt.  A value of 1 indicates a change on the ACOK pin was detected.  Write a value of 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "PMICHOT",
+                "bitGroup" : {
+                  "groupID": "PMICHOT",
+                  "groupBit": "0"
+                },                  "bitDescription" : "This is the PMIC internal temperature detection interrupt.  A value of 1 indicates the PMIC temperature is hot.  Write a value of 1 to clear the interrupt",
+                "bitRW" : true
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          },
+          {
+            "bitMode" : [
+              {
+                "bitName" : "RSVD",
+
+                "bitDescription" : "Reserved",
+                "bitRW" : false
+              }
+            ],
+            "bitModeIndex" : 0,
+            "bitLocked" : false,
+            "bitRelationship" : ""
+          }
+        ]
+      }
+    ]
+  }
+}

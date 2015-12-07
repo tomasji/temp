@@ -1,0 +1,13 @@
+#!/bin/bash
+
+	# new libstdc++ library for IPG
+export LD_LIBRARY_PATH=/opt/gcc-5.2.0/lib64
+
+	# prepare test device files into a fake HOME
+script_dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd -P)
+tmp_home=$script_dir/tmp-home
+devices="$tmp_home/Documents/.Texas_Instruments/IPG-UI/Devices"
+rm -rf "$tmp_home"
+mkdir -p "$devices"
+cp "$script_dir/Devices/"* "$devices"
+export HOME=$tmp_home
