@@ -15,5 +15,5 @@ dependencies:
 test:
     override:
         - cd 
-        - docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g`
-        - mkdir -p "$CIRCLE_ARTIFACTS" && cp -r results/2* "$CIRCLE_ARTIFACTS"/results
+        - docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` --test_rail "$TEST_RAIL_CRED"
+        - mkdir -p "$CIRCLE_TEST_REPORTS" && cp -r results/2* "$CIRCLE_TEST_REPORTS"/gui-results
