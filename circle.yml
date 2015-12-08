@@ -10,5 +10,4 @@ dependencies:
 
 test:
     override:
-        - cd 
-        - true
+        - echo "ok"
