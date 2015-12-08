@@ -171,7 +171,7 @@ class TestMainPage():
         cells[2][7].click()
         cells[2][9].click()
         time.sleep(1)
-        assert inp.get_attribute('value') == '01'
+        assert inp.get_attribute('value') == '00'
         assert get_lg_status(logical_groups) == [False, False, False, False]
         time.sleep(5)
 

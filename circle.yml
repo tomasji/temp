@@ -7,13 +7,8 @@ dependencies:
         - "~/docker"
     override:
         - docker info
-        - docker login -e saldock@salsitasoft.com -u $DOCKER_USER -p $DOCKER_PASSWORD docker.salsitasoft.com
-        - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-        - docker run docker.salsitasoft.com/shishito:0.1 /usr/bin/true
-        - mkdir -p ~/docker; docker save docker.salsitasoft.com/shishito:0.1 > ~/docker/image.tar
 
 test:
     override:
         - cd 
-        - docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` --test_rail "$TEST_RAIL_CRED"
-        - mkdir -p "$CIRCLE_TEST_REPORTS" && cp -r results/2* "$CIRCLE_TEST_REPORTS"/gui-results
+        - false
