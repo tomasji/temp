@@ -10,4 +10,4 @@ dependencies:
 
 test:
     override:
-        - echo "ok"
+            - echo "ok" && [ a = b ]
