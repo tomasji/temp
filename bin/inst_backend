@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+(mkdir -p dist && cd dist && rm -rf css  img  node_modules  server.js  views)
+./node_modules/webpack/bin/webpack.js --config=webpack/webpack.backend.config.js
+tar c -C src/server -f - views | (cd dist && tar xf -)
+mkdir dist/node_modules
+tar c -C node_modules -f - express ejs| (cd dist/node_modules && tar xf -)

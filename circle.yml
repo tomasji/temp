@@ -1,0 +1,22 @@
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - npm install
+    - npm run build_backend
+    - docker login -e saldock@salsitasoft.com -u $DOCKER_USER -p $DOCKER_PASSWORD docker.salsitasoft.com
+    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - docker run docker.salsitasoft.com/shishito:0.1 /usr/bin/true
+    - if ! [[ -e ~/docker/image.tar ]]; then mkdir -p ~/docker; docker save docker.salsitasoft.com/shishito:0.1 > ~/docker/image.tar; fi
+
+machine:
+  environment:
+    PATH: ${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin
+  node:
+    version: 0.12.0
+  services:
+    - docker
+
+test:
+  override:
+    - test-ui/run-tests

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="0" name="pytest" skips="0" tests="1" time="6.483"><testcase classname="[Firefox, 36.0, 1024x768].test_smoke.TestMainPage" file="test_smoke.py" line="27" name="test_google_search" time="6.471954345703125"/></testsuite>
