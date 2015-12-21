@@ -8,6 +8,8 @@ export TZ=Europe/Prague
 
 # run tests
 cd "$HOME/$CIRCLE_PROJECT_REPONAME/test-ui"
+docker run -d -p 4444:4444 docker.salsitasoft.com/service-test:0.4
+sleep 5
 #docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` --test_rail "$TEST_RAIL_CRED" || RESULT_CODE=1
 docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` || RESULT_CODE=1
 mkdir -p "$CIRCLE_TEST_REPORTS" && cp -r "$HOME/$CIRCLE_PROJECT_REPONAME/test-ui/results/"2* "$CIRCLE_TEST_REPORTS"/gui-results
