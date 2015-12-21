@@ -4,7 +4,6 @@ dependencies:
   override:
     - npm install
     - npm run build_backend
-    - docker login -e saldock@salsitasoft.com -u $DOCKER_USER -p $DOCKER_PASSWORD docker.salsitasoft.com
     - if ! [[ -e ~/shishito/shi ]]; then cd ; curl http://docker.salsitasoft.com/qa/shishito-cci-2.3.tgz | tar xzvf -; fi
 
 machine:
