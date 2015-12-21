@@ -11,6 +11,6 @@ sleep 2
 cd "$HOME/$CIRCLE_PROJECT_REPONAME/test-ui"
 
 # --test_rail "$TEST_RAIL_CRED"
-"$HOME/shi" || RESULT_CODE=1
+"$HOME/shishito/shi" || RESULT_CODE=1
 mkdir -p "$CIRCLE_TEST_REPORTS" && cp -r "$HOME/$CIRCLE_PROJECT_REPONAME/test-ui/results/"2* "$CIRCLE_TEST_REPORTS"/gui-results
 exit "$RESULT_CODE"
