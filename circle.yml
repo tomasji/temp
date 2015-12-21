@@ -1,24 +1,17 @@
 dependencies:
   cache_directories:
-    - "~/docker"
+    - "~/shishito"
   override:
     - npm install
     - npm run build_backend
     - docker login -e saldock@salsitasoft.com -u $DOCKER_USER -p $DOCKER_PASSWORD docker.salsitasoft.com
-    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - if [[ -e ~/docker/image_sel.tar ]]; then docker load --input ~/docker/image_sel.tar; fi
-    - docker run docker.salsitasoft.com/shishito:0.1 /usr/bin/true
-    - docker run docker.salsitasoft.com/service-test:0.4  /usr/bin/true
-    - if ! [[ -e ~/docker/image.tar ]]; then mkdir -p ~/docker; docker save docker.salsitasoft.com/shishito:0.1 > ~/docker/image.tar; fi
-    - if ! [[ -e ~/docker/image_sel.tar ]]; then mkdir -p ~/docker; docker save docker.salsitasoft.com/service-test:0.4 > ~/docker/image_sel.tar; fi
+    - if ! [[ -e ~/shishito/shi ]]; then cd ; curl http://docker.salsitasoft.com/qa/shishito-cci-2.3.tgz | tar xzvf -; fi
 
 machine:
   environment:
     PATH: ${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin
   node:
     version: 0.12.0
-  services:
-    - docker
 
 test:
   override:
