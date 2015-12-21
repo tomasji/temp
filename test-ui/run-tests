@@ -18,6 +18,8 @@ docker run -d -p 4444:4444 docker.salsitasoft.com/service-test:0.4
 sleep 5
 
 sed -i "s/^base_url=.*/base_url=http:\/\/$QA_PRODUCT_HOST:3000/" config/server_config.properties
+sed -i "s/^remote_driver_url=.*/remote_driver_url=http:\/\/$QA_PRODUCT_HOST:4444\/wd\/hub/" config/server_config.properties
+grep "$QA_PRODUCT_HOST" config/server_config.properties
 
 #docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` --test_rail "$TEST_RAIL_CRED" || RESULT_CODE=1
 docker run -v `pwd`:/app docker.salsitasoft.com/shishito:0.1 shishito `id -u` `id -g` || RESULT_CODE=1
