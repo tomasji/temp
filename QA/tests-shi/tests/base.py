@@ -1,33 +1,35 @@
 # /usr/bin/env python
-import pytest
-from unittestzero import Assert
 from shishito.runtime.shishito_support import ShishitoSupport
 from shishito.ui.selenium_support import SeleniumTest
 from shishito.conf.conftest import get_test_info
+from subprocess import call
+import requests
+from time import sleep
+import os
+from tempfile import NamedTemporaryFile
+import re
 
 
-@pytest.mark.usefixtures("test_status")
-class TestMainPage():
+class BaseTestClass():
     """ Contextual help test """
 
+
     def setup_class(self):
+            # shishito / selenium support
         self.tc = ShishitoSupport().get_test_control()
         self.driver = self.tc.start_browser()
         self.ts = SeleniumTest(self.driver)
 
+
+    def setup_method(self, method):
+        pass
+
+
     def teardown_class(self):
         self.tc.stop_browser()
 
-    def setup_method(self, method):
-        self.tc.start_test(True)
-
     def teardown_method(self, method):
-        self.tc.stop_test(get_test_info())
+        self.tc.stop_test(get_test_info())  # save screenshot in case test fails
 
-    ### Tests ###
-    @pytest.mark.smoke
-    def test_google_search(self):
-        """ test google search """
-        self.driver.get('http://google.com/')
-        Assert.equal(self.driver.title, 'Google')
+
 
