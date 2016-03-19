@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+PROJECT='circlesorg-test'
+
+echo "** Running $0 **"
+
+set -x
+git clone "git@heroku.com:$PROJECT.git"
+cd "$PROJECT"
+git config user.name "circleci"
+git config user.email "herokuadmin@salsitasoft.com"
+echo "$CIRCLE_BUILD_NUM" > circle-build.txt
+git add circle-build.txt
+git commit -m "build $CIRCLE_BUILD_NUM"
+git push -f "git@heroku.com:$PROJECT.git" ${CIRCLE_BRANCH}:refs/heads/master
+

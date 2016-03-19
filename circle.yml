@@ -15,14 +15,11 @@ test:
     - /bin/true
 
   post:
-    - git config user.name "circleci"
-    - git config user.email "herokuadmin@salsitasoft.com"
-    - git add dist
-    - git commit -m "build"
+    - tar czf "$CIRCLE_ARTIFACTS/product.tgz" dist
+    - tar c -C QA -zf "$CIRCLE_ARTIFACTS/tests-shi.tgz" tests-shi
 
 deployment:
   develop:
-    branch: [cci]
+    branch: [master]
     commands:
-    - git push -f git@heroku.com:temp-cci.git ${CIRCLE_BRANCH}:refs/heads/master
-
+    - QA/bin/update-heroku
