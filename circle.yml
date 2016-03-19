@@ -16,7 +16,7 @@ test:
 
   post:
     - tar czf "$CIRCLE_ARTIFACTS/product.tgz" dist
-    - tar c -C QA -zf "$CIRCLE_ARTIFACTS/tests-shi.tgz" tests-shi
+    - tar c -C QA -zf "$CIRCLE_ARTIFACTS/tests-shi.tgz" tests-shi bin
 
 deployment:
   develop:
