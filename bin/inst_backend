@@ -4,4 +4,4 @@ set -e
 node ./node_modules/webpack/bin/webpack.js --config=webpack/webpack.backend.config.js
 tar c -C src/server -f - css img views | (cd dist && tar xf -)
 mkdir dist/node_modules
-tar c -C node_modules -f - express immutable invariant react react-dom react-redux react-router ejs redux pg | (cd dist/node_modules && tar xf -)
+tar c -C node_modules -f - express immutable invariant react react-dom react-redux react-router ejs redux | (cd dist/node_modules && tar xf -)

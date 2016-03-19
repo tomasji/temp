@@ -7,8 +7,15 @@
 	<body>
 		<div id="app">
 		</div>
-		<%- vars %>
-		<div id='page_type' type='<%= page %>'><script src="/js/client.js"></script></div>
+		<table>
+		<% for (var i of Object.keys(data).sort()) { %>
+			<tr>
+				<td><%= i %></td>
+				<td><%= data[i] %></td>
+			</tr>
+		<% } %>
+		</table>
+		<script src="/js/client.js"></script>
 	</body>
 </html>
 
