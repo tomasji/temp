@@ -46,3 +46,4 @@ eg:
 - Jira: drags issue to Done or ToDo (Pass / Fail transition)
 - or creates a bug issue
 1
+2
