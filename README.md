@@ -45,3 +45,8 @@ eg:
 ### 8) QA Tests the story
 - Jira: drags issue to Done or ToDo (Pass / Fail transition)
 - or creates a bug issue
+1
+2
+3
+4
+5
