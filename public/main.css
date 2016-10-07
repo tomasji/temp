@@ -1,0 +1,42 @@
+body {
+    background-color: #e0e0f0;
+}
+
+h1, h2 {
+    color: navy;
+}
+
+div.local-time {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #0b0b0b;
+	width: 10em;
+	padding: 10px;
+	text-align:center;
+	background-color: #ffd39b;
+	margin: 5px;
+}
+div.tz-clock {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #0b0b0b;
+	width: 10em;
+	padding: 10px;
+	text-align:center;
+	background-color: #f5f5f5;
+	margin: 5px;
+	float: left;
+	cursor: not-allowed;
+}
+div.controls {
+	clear: left;
+}
+
+span.clock-value {
+	font-family: Monospace;
+	font-size: 160%;
+	font-weight: bold;
+}
+button {
+	margin-left: 10px; 
+}
