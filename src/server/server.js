@@ -4,19 +4,32 @@
 import express from 'express';
 const app = express();
 
-app.get('/list/:page', (req, res) => {
+app.get('/v2/shops/:shopId/listings/draft', (req, res) => {
+  console.log('Got shop request', req.params.shopId);
   setTimeout(() => {
     const list = [];
-    for (let i = 0; i < 50; i++) {
-      list.push(parseInt(req.params.page, 10) * 50 + i);
+    for (let i = 0; i < 10; i++) {
+      list.push({ listing_id: (parseInt(req.query.page, 10) - 1) * 10 + i });
     }
-    res.send({pages: 3, list: list});
+    let next_page = (req.query.page == '2') ? null : 2;
+    console.log(req.query);
+
+    res.send({pagination: {next_page: next_page}, results: list});
   }, 5000);
 });
 
-app.get('/item/:id', (req, res) => {
+app.get('/v2/listings/:id', (req, res) => {
+  console.log('Got listing request', req.params.id);
+  if (req.params.id == 2) {
+    return res.status(500).send('Something broke!');
+  }
   setTimeout(() => {
-    res.send({id:req.params.id});
+    res.send({results:[
+      {
+        listing_id: req.params.id,
+        title: 'title ' + req.params.id
+      }
+    ]});
   }, 5000);
 });
 

@@ -7,8 +7,8 @@
   "homepage": "https://www.salsitasoft.com/",
   "scripts": {
     "build": "npm run build:server && npm run build:worker",
-    "build:server": "./node_modules/.bin/webpack --config=webpack/webpack.prod.server.config.babel.js",
-    "build:worker": "./node_modules/.bin/webpack --config=webpack/webpack.prod.worker.config.babel.js",
+    "build:server": "./node_modules/.bin/webpack --config=webpack/webpack.prod.server.config.babel.js --bail",
+    "build:worker": "./node_modules/.bin/webpack --config=webpack/webpack.prod.worker.config.babel.js --bail",
     "start": "node ./dist/server.js"
   },
   "devDependencies": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "fetch-promise": "^1.0.2",
-    "patch": "0.0.1"
+    "oauth": "^0.9.14",
+    "pg": "^6.1.0"
   }
 }
