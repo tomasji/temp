@@ -1,0 +1,47 @@
+@startuml
+autonumber
+participant web as "Web"
+participant worker1 as "Worker A"
+participant worker2 as "Worker B"
+participant manager as "Manager"
+participant db as "DB"
+participant etsy as "Etsy"
+
+web -> db: create_task(update shop 1) [#1]
+note left: Sync Updates
+manager -> db: create_task(fetch shop 1) [#2]
+...
+worker2 -> manager: get_task
+manager -> db: get_task
+manager <-- db: task update(shop 1)
+worker2 <-- manager: task update(shop 1)
+
+group Another worker
+	worker1 -> manager: get_task
+	manager -> db: get_task
+	manager <-- db: n/a
+	note right
+		task #2 exists but shop 1
+		is being processed by Worker B
+	end note
+	worker1 <-- manager: n/a
+end
+
+note left: Process shop
+worker2 -> db: get_listings
+worker2 -> etsy: create_section
+worker2 -> etsy: POST(image)
+worker2 -> etsy: PUT(listing)
+worker2 -> etsy: POST(variations)
+
+
+worker2 -> db: update_listing()
+worker2 -> db: update_shop_status()
+
+alt Success
+	worker2 -> db: delete task
+else Error
+	worker2 -> db: reschedule task (TTL--)
+end
+
+@enduml 
