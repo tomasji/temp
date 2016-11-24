@@ -11,9 +11,18 @@ export const db = () => dbPool;
  *    id: 123,
  *    data: { ... }
  */
-export function uploadResults(listingId, data) {
+export function storeResults(listingId, data) {
   const Sql = 'INSERT INTO listings (id, data) VALUES ($1, $2::json)';
   return dbPool.query(Sql, [listingId, data]);
+}
+
+
+/*
+ * Get changed listings
+ */
+export function getChangedListings(shopId) {
+  const Sql = 'SELECT id, data FROM listings';
+  return dbPool.query(Sql);
 }
 
 

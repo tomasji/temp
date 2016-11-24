@@ -6,9 +6,10 @@
   "version": "1.0.0",
   "homepage": "https://www.salsitasoft.com/",
   "scripts": {
-    "build": "npm run build:server && npm run build:worker",
+    "build": "npm run build:server && npm run build:worker && npm run build:worker-upload",
     "build:server": "./node_modules/.bin/webpack --config=webpack/webpack.prod.server.config.babel.js --bail",
     "build:worker": "./node_modules/.bin/webpack --config=webpack/webpack.prod.worker.config.babel.js --bail",
+    "build:worker-upload": "./node_modules/.bin/webpack --config=webpack/webpack.prod.worker-upload.config.babel.js --bail",
     "start": "node ./dist/server.js"
   },
   "devDependencies": {
