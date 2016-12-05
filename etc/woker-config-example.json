@@ -1,0 +1,9 @@
+{
+	"VELA_DB_USER": "vela",
+	"VELA_DB_PASS": "xxx",
+	"VELA_DB_NAME": "vela",
+	"VELA_DB_HOST": "localhost",
+	"VELA_DB_PORT": 5432,
+	"VELA_CLIENT_SECRET": "xxx",
+	"VELA_CLIENT_TOKEN": "xxx"
+}
